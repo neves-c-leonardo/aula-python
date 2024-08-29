@@ -24,3 +24,5 @@ print(resultado)
 # Menor ou igual (<=)
 resultado = a <= b
 print(resultado)
+
+# Teste
