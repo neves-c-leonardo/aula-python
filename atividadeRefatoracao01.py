@@ -1,16 +1,16 @@
 # Variaveis de preço
-p1 = 100
-p2 = 200
-p3 = 300
+preco_produtos = [100, 200]
 
-t = p1 + p2 + p3
+total_preco = sum(preco_produtos)
 
-desc = 0
-if t > 500:
-    desc = t * 0.1
+print(f"Total Preço: {total_preco}")
 
-r = t - desc
-
-print("Total antes do desconto:",t)
-print("Desconto aplicado:", desc)
-print("Total com desconto:", r)
+# Aplica um desconto de 10% se o total dos preços exceder 500
+if total_preco > 500:
+    desconto = (total_preco * 0.1)
+    total_com_desconto = total_preco - desconto
+    print(f"Desconto aplicado: {desconto}")
+    print(f"Total com desconto: {total_com_desconto}" )
+else:
+    diferenca = 500 - total_preco
+    print(f"Faltou {diferenca} para o desconto ser aplicado! Deseja incluir mais produtos?")
