@@ -1,9 +1,13 @@
 alunos = {"leonardo": 80, "brenda": 95, "catarina": 100}
 
 def recuperarNotaAluno(aluno):
-    if aluno in alunos:
-        print(f"O aluno {aluno} está com nota: {alunos[aluno]}")
-    else:
+    try:
+        if aluno in alunos:
+            print(f"O aluno {aluno} está com nota: {alunos[aluno]}")
+        else:
+            raise KeyError
+    
+    except KeyError:
         print("Aluno não encontrado! Tente novamente")
 
         operacao = input("Deseja tentar novamente? (S/N) ")
@@ -12,11 +16,17 @@ def recuperarNotaAluno(aluno):
         elif operacao.upper() == "N":
             print("Programa finalizado!")
         else:
-            print("Operação não reconhecida! O programa irá finalizar!")
+            raise ValueError("Operação não reconhecida!") 
+                
+    except ValueError as ve:
+        print(ve)
         
 
 def main():
-    aluno = input("Digite o nome do aluno que deseja consultar a nota: ")
-    recuperarNotaAluno(aluno)
+    try:
+        aluno = input("Digite o nome do aluno que deseja consultar a nota: ")
+        recuperarNotaAluno(aluno)
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")
 
 main()   
